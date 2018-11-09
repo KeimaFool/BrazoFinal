@@ -1,0 +1,16 @@
+git push -u origin master // push to external rep., at rep. 'origin'  of master branch
+
+git init // initialize a git rep on current directory
+
+git add <file> //add files for commiting (use '.' for all files)
+
+git status //check files 
+
+git commit -m 'message'//commits, message is necesarry to skip other window
+
+git push -u origin(external rep.) master(branch) //push commit to external rep.
+
+git pull //pulls most recent commit from external rep.
+
+git clone website // copies a git from web.
+
