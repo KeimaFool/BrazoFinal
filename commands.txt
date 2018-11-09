@@ -1,4 +1,5 @@
-git push -u origin master // push to external rep., at rep. 'origin'  of master branch
+GIT COMMANDS:
+
 
 git init // initialize a git rep on current directory
 
@@ -8,7 +9,7 @@ git status //check files
 
 git commit -m 'message'//commits, message is necesarry to skip other window
 
-git push -u origin(external rep.) master(branch) //push commit to external rep.
+git push -u origin(external rep.) master(branch) // push to external rep., at rep. 'origin'  of master branch
 
 git pull //pulls most recent commit from external rep.
 
