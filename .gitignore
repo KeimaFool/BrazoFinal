@@ -1,3 +1,5 @@
-example.txt
+commands.txt
 *.jpeg
 /directories
+*.PNG
+*.JPG
