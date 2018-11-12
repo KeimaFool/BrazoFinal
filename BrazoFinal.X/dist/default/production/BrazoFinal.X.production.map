@@ -1,16 +1,16 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Sun Nov 11 23:07:40 2018
+Linker Map File - Created Sun Nov 11 23:23:41 2018
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                  RES_VECT       code   0x000000    program   0x000002
                    .cinit    romdata   0x000001    program   0x000004
-                 ISR_VECT       code   0x000004    program   0x00002c
-                MAIN_PROG       code   0x00001a    program   0x000120
+                 ISR_VECT       code   0x000004    program   0x00003e
+                MAIN_PROG       code   0x000023    program   0x00012a
 .config_2007_BUILD/DEFAULT/PRODUCTION/BRAZO.O       code   0x002007    program   0x000002
 .config_2008_BUILD/DEFAULT/PRODUCTION/BRAZO.O       code   0x002008    program   0x000002
-                  GPR_VAR      udata   0x000020       data   0x00000f
+                  GPR_VAR      udata   0x000020       data   0x00000e
 
 
 
@@ -18,47 +18,46 @@ Linker Map File - Created Sun Nov 11 23:07:40 2018
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000002      
-                            0x000004    0x0000a9      
+                            0x000004    0x0000b7      
                             0x002007    0x002008      
-            171 out of 8455 program addresses used, program memory utilization is 2%
+            185 out of 8455 program addresses used, program memory utilization is 2%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                 CHECK_AD   0x000024    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CHECK_RCIF   0x00002a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CHECK_TXIF   0x00002f    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CONFIG_ADC   0x000076    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                CONFIG_IO   0x000052    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CONFIG_PWM   0x000065    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-             CONFIG_RELOJ   0x000034    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-              CONFIG_TMR0   0x000090    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-             CONFIG_TX_RX   0x00003a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-              DELAY_500US   0x0000a5    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               DELAY_50MS   0x00009f    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                 CHECK_AD   0x00002d    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CHECK_RCIF   0x000034    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CHECK_TXIF   0x00003d    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CONFIG_ADC   0x000084    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                CONFIG_IO   0x000060    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CONFIG_PWM   0x000073    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+             CONFIG_RELOJ   0x000042    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+              CONFIG_TMR0   0x00009e    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+             CONFIG_TX_RX   0x000048    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+              DELAY_500US   0x0000b3    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               DELAY_50MS   0x0000ad    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                       ISR   0x000007    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                     LOOP   0x000022    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                      POP   0x000015    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                     LOOP   0x00002b    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                      POP   0x00001e    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      PUSH   0x000004    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                    SERVO   0x00002a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                    START   0x00001a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_000B   0x000025    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_0018   0x000032    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_0089   0x0000a3    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_008E   0x0000a8    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                    SERVO   0x000038    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                    START   0x000023    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_000B   0x00002e    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_001D   0x000040    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_008E   0x0000b1    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_0093   0x0000b6    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                    DELAY1   0x000025       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                    DELAY2   0x000026       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                     LEIDO   0x000022       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      POT1   0x000027       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      POT2   0x000028       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      POT3   0x000029       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                 POT3CONT   0x00002b       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                     POT3S   0x00002a       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      POT4   0x00002c       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                 POT4CONT   0x00002e       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                     POT4S   0x00002d       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                  POTCONT   0x00002b       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                   PROBAR1   0x000023       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                   PROBAR2   0x000024       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
               STATUS_TEMP   0x000021       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
@@ -71,25 +70,25 @@ Linker Map File - Created Sun Nov 11 23:07:40 2018
                 ---------  ---------  ---------  --------- ---------                
                      PUSH   0x000004    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                       ISR   0x000007    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                      POP   0x000015    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                    START   0x00001a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                     LOOP   0x000022    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                 CHECK_AD   0x000024    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_000B   0x000025    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CHECK_RCIF   0x00002a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                    SERVO   0x00002a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CHECK_TXIF   0x00002f    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_0018   0x000032    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-             CONFIG_RELOJ   0x000034    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-             CONFIG_TX_RX   0x00003a    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                CONFIG_IO   0x000052    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CONFIG_PWM   0x000065    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               CONFIG_ADC   0x000076    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-              CONFIG_TMR0   0x000090    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-               DELAY_50MS   0x00009f    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_0089   0x0000a3    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-              DELAY_500US   0x0000a5    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-          _MAIN_PROG_008E   0x0000a8    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                      POP   0x00001e    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                    START   0x000023    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                     LOOP   0x00002b    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                 CHECK_AD   0x00002d    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_000B   0x00002e    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CHECK_RCIF   0x000034    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                    SERVO   0x000038    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CHECK_TXIF   0x00003d    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_001D   0x000040    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+             CONFIG_RELOJ   0x000042    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+             CONFIG_TX_RX   0x000048    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                CONFIG_IO   0x000060    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CONFIG_PWM   0x000073    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               CONFIG_ADC   0x000084    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+              CONFIG_TMR0   0x00009e    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+               DELAY_50MS   0x0000ad    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_008E   0x0000b1    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+              DELAY_500US   0x0000b3    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+          _MAIN_PROG_0093   0x0000b6    program     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                    W_TEMP   0x000020       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
               STATUS_TEMP   0x000021       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                     LEIDO   0x000022       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
@@ -101,9 +100,8 @@ Linker Map File - Created Sun Nov 11 23:07:40 2018
                      POT2   0x000028       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      POT3   0x000029       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                     POT3S   0x00002a       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                 POT3CONT   0x00002b       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
+                  POTCONT   0x00002b       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                      POT4   0x00002c       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
                     POT4S   0x00002d       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
-                 POT4CONT   0x00002e       data     static C:\Users\ASUS\Documents\Life\College\Y4 S2\BRAZO\Codigo\BrazoFinal.X\Brazo.asm
 
 

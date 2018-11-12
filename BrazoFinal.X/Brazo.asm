@@ -28,10 +28,9 @@ POT1	       RES	  1
 POT2	       RES	  1
 POT3	       RES	  1
 POT3S	       RES	  1
-POT3CONT       RES	  1	       
+POTCONT        RES	  1	       
 POT4	       RES	  1
 POT4S	       RES	  1
-POT4CONT       RES	  1
 ;***************************
 ; Reset Vector
 ;***************************
@@ -50,16 +49,26 @@ ISR_VECT  CODE    0x0004
     MOVLW .242
     MOVWF TMR0
     MOVLW .4
-    ADDWF POT3CONT,1
+    ADDWF POTCONT,1
     RRF	    POT3, 0
     MOVWF   POT3S
     RRF	    POT3S,0
     ANDLW   B'00111111'
-    SUBWF   POT3CONT,0
+    SUBWF   POTCONT,0
     BTFSC STATUS,C
     BCF PORTB,0
     BTFSS STATUS,C
     BSF PORTB,0
+    
+    RRF	    POT4, 0
+    MOVWF   POT4S
+    RRF	    POT4S,0
+    ANDLW   B'00111111'
+    SUBWF   POTCONT,0
+    BTFSC STATUS,C
+    BCF PORTB,1
+    BTFSS STATUS,C
+    BSF PORTB,1
     
     
     
@@ -100,7 +109,8 @@ CHECK_AD:
     BCF	    PIR1, ADIF			; borramos la bandera del adc
     MOVF    ADRESH, W
     MOVWF   POT1
-    MOVWF   POT3			; mueve adresh a LEIDO
+    MOVWF   POT3
+    MOVWF   POT4	; mueve adresh a LEIDO
     
 CHECK_RCIF:			    ; RECIBE EN RX y lo muestra en PORTD
     BTFSS   PIR1, RCIF
@@ -252,7 +262,7 @@ CONFIG_TMR0
 ;------------------------------------------------
     
 DELAY_50MS
-    MOVLW   .100		    ; 1US 
+    MOVLW   .50		    ; 1US 
     MOVWF   DELAY2
     CALL    DELAY_500US
     DECFSZ  DELAY2		    ;DECREMENTA CONT1
