@@ -1,0 +1,35 @@
+Warning[207] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 44 : Found label after column 1. (PUSH)
+Warning[207] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 48 : Found label after column 1. (ISR)
+Warning[207] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 66 : Found label after column 1. (POP)
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 135 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 136 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 137 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 144 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 145 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 147 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 150 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 151 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 157 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 165 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 166 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 167 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 168 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 169 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 171 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 172 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 183 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 209 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 210 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 211 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 216 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 217 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 218 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 219 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 221 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 229 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 230 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 232 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 233 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 234 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 258 : Using default destination of 1 (file).
+Message[305] C:\USERS\ASUS\DOCUMENTS\LIFE\COLLEGE\Y4 S2\BRAZO\CODIGO\BRAZOFINAL.X\BRAZO.ASM 265 : Using default destination of 1 (file).

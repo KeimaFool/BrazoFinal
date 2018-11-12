@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=
+SOURCEFILES_QUOTED_IF_SPACED=Brazo.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=
-POSSIBLE_DEPFILES=
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Brazo.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Brazo.o.d
 
 # Object Files
-OBJECTFILES=
+OBJECTFILES=${OBJECTDIR}/Brazo.o
 
 # Source Files
-SOURCEFILES=
+SOURCEFILES=Brazo.asm
 
 
 CFLAGS=
@@ -94,7 +94,23 @@ MP_LINKER_DEBUG_OPTION=-r=ROM@0x1F00:0x1FFE -r=RAM@SHARE:0x70:0x70 -r=RAM@SHARE:
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/Brazo.o: Brazo.asm  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Brazo.o.d 
+	@${RM} ${OBJECTDIR}/Brazo.o 
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/Brazo.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_PK3=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/Brazo.lst\" -e\"${OBJECTDIR}/Brazo.err\" $(ASM_OPTIONS)    -o\"${OBJECTDIR}/Brazo.o\" \"Brazo.asm\" 
+	@${DEP_GEN} -d "${OBJECTDIR}/Brazo.o"
+	@${FIXDEPS} "${OBJECTDIR}/Brazo.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
+	
 else
+${OBJECTDIR}/Brazo.o: Brazo.asm  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Brazo.o.d 
+	@${RM} ${OBJECTDIR}/Brazo.o 
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/Brazo.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/Brazo.lst\" -e\"${OBJECTDIR}/Brazo.err\" $(ASM_OPTIONS)    -o\"${OBJECTDIR}/Brazo.o\" \"Brazo.asm\" 
+	@${DEP_GEN} -d "${OBJECTDIR}/Brazo.o"
+	@${FIXDEPS} "${OBJECTDIR}/Brazo.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
+	
 endif
 
 # ------------------------------------------------------------------------------------
