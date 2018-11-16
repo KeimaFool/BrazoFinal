@@ -1,5 +1,6 @@
 GIT COMMANDS:
 
+git remote add origin website //add external repository
 
 git init // initialize a git rep on current directory
 
