@@ -31,6 +31,7 @@ POT3S	       RES	  1
 POTCONT        RES	  1	       
 POT4	       RES	  1
 POT4S	       RES	  1
+SERVO RES 1
 ;***************************
 ; Reset Vector
 ;***************************
@@ -50,20 +51,14 @@ ISR_VECT  CODE    0x0004
     MOVWF TMR0
     MOVLW .4
     ADDWF POTCONT,1
-    RRF	    POT3, 0
-    MOVWF   POT3S
-    RRF	    POT3S,0
-    ANDLW   B'00111111'
+    MOVF POT3,0
     SUBWF   POTCONT,0
     BTFSC STATUS,C
     BCF PORTB,0
     BTFSS STATUS,C
     BSF PORTB,0
     
-    RRF	    POT4, 0
-    MOVWF   POT4S
-    RRF	    POT4S,0
-    ANDLW   B'00111111'
+    MOVF POT4,0
     SUBWF   POTCONT,0
     BTFSC STATUS,C
     BCF PORTB,1
@@ -95,6 +90,7 @@ START
     CALL    CONFIG_ADC			; canal 0, fosc/8, adc on, justificado a la izquierda, Vref interno (0-5V)
     CALL    CONFIG_TMR0
     BANKSEL PORTA
+    CLRF SERVO
 ;***************************
    
 ;***************************
@@ -108,33 +104,70 @@ CHECK_AD:
     GOTO    $-1
     BCF	    PIR1, ADIF			; borramos la bandera del adc
     MOVF    ADRESH, W
-    MOVWF   POT1
-    MOVWF   POT3
-    MOVWF   POT4	; mueve adresh a LEIDO
-    
+    MOVWF LEIDO
+
 CHECK_RCIF:			    ; RECIBE EN RX y lo muestra en PORTD
     BTFSS   PIR1, RCIF
     GOTO    CHECK_TXIF
     MOVF    RCREG, W
 
     MOVWF   PROBAR1
-
-    
-SERVO:
     RRF	    PROBAR1, 0
     MOVWF   PROBAR2
     RRF	    PROBAR2,0
     ANDLW   B'00111111'
-    MOVWF   CCPR1L
-
+    MOVWF PROBAR2
+    
+    MOVF SERVO,0
+    ADDWF PCL,1
+    
+    GOTO SERVO0
+    GOTO SERVO1
+    GOTO SERVO2
+    GOTO SERVO3
     
 CHECK_TXIF: 
-    MOVFW   POT1		    ; ENVÍA PORTB POR EL TX
+    MOVF    LEIDO,W		    ; ENVÍA PORTB POR EL TX
     MOVWF   TXREG
    
     BTFSS   PIR1, TXIF
     GOTO    $-1
     
+
+GOTO LOOP
+    
+    
+SERVO0:
+    INCF SERVO
+    BSF ADCON0,2
+    MOVF PROBAR2,0
+    MOVWF CCPR1L
+    GOTO CHECK_TXIF
+
+SERVO1:
+    INCF SERVO
+    BSF ADCON0,3
+    BCF ADCON0,2
+    MOVF PROBAR2,0
+    MOVWF CCPR2L
+    BSF PORTB,2
+    GOTO CHECK_TXIF
+
+SERVO2:
+    INCF SERVO
+    BSF ADCON0,2
+    MOVF PROBAR2,0
+    MOVWF POT3
+    GOTO CHECK_TXIF
+    
+SERVO3:
+    CLRF SERVO
+    BCF ADCON0,2
+    BCF ADCON0,3
+    MOVF PROBAR2,0
+    MOVWF POT4
+    GOTO CHECK_TXIF
+    BCF PORTB,2
     GOTO LOOP
 ;***************************
 ;*************************** 
@@ -253,6 +286,7 @@ CONFIG_TMR0
     
     MOVLW .242
     MOVWF TMR0	
+    RETURN
     
     
     
@@ -262,7 +296,7 @@ CONFIG_TMR0
 ;------------------------------------------------
     
 DELAY_50MS
-    MOVLW   .50		    ; 1US 
+    MOVLW   .2	    ; 1US 
     MOVWF   DELAY2
     CALL    DELAY_500US
     DECFSZ  DELAY2		    ;DECREMENTA CONT1

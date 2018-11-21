@@ -1,5 +1,5 @@
 MPLINK 5.08, LINKER
-Linker Map File - Created Wed Nov 21 16:52:52 2018
+Linker Map File - Created Wed Nov 21 16:54:33 2018
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -8,8 +8,8 @@ Linker Map File - Created Wed Nov 21 16:52:52 2018
                    .cinit    romdata   0x000001    program   0x000004
                  ISR_VECT       code   0x000004    program   0x000032
                 MAIN_PROG       code   0x00001d    program   0x000168
-.config_2007_BUILD/DEFAULT/PRODUCTION/BRAZO.O       code   0x002007    program   0x000002
-.config_2008_BUILD/DEFAULT/PRODUCTION/BRAZO.O       code   0x002008    program   0x000002
+.config_2007_BUILD/DEFAULT/DEBUG/BRAZO.O       code   0x002007    program   0x000002
+.config_2008_BUILD/DEFAULT/DEBUG/BRAZO.O       code   0x002008    program   0x000002
                   GPR_VAR      udata   0x000020       data   0x00000f
 
 

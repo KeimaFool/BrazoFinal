@@ -1,4 +1,4 @@
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  1
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0000   2???           00040     GOTO    START                   ; go to beginning of program
                       00041 
                       00042 ISR_VECT  CODE    0x0004
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  2
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[207]: Found label after column 1. (POP)
 0004   2???           00090     CALL    CONFIG_ADC                  ; canal 0, fosc/8, adc on, justificado a la izquierda, Vref inte
                             rno (0-5V)
 0005   2???           00091     CALL    CONFIG_TMR0
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  3
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ Warning[203]: Found opcode in column 1. (GOTO)
 Message[305]: Using default destination of 1 (file).
 0024   0A??           00141     INCF SERVO
 0025   151F           00142     BSF ADCON0,2
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  4
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0045   1218           00187     BCF     TXSTA, SYNC             ; ASINCRÓNO
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 0046   1518           00188     BSF     TXSTA, BRGH             ; LOW SPEED
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  5
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -293,7 +293,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0070   0195           00227     CLRF    CCPR1L
 0071   303C           00228     MOVLW   B'00111100'
 0072   0097           00229     MOVWF   CCP1CON
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  6
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -352,7 +352,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
 009B   1281           00272     BCF OPTION_REG, T0CS    ; SELECCIONAMOS TMR0 COMO TEMPORIZADOR
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  7
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -405,7 +405,7 @@ Message[305]: Using default destination of 1 (file).
                       00312 
                       00313     
 20D4 3FFF             00314     END
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  8
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  8
 
 
 SYMBOL TABLE
@@ -464,7 +464,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE  9
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE  9
 
 
 SYMBOL TABLE
@@ -523,7 +523,7 @@ CHECK_AD                          0000000B
 CHECK_RCIF                        00000010
 CHECK_TXIF                        0000001F
 CHS0                              00000002
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 10
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 10
 
 
 SYMBOL TABLE
@@ -582,7 +582,7 @@ GIE                               00000007
 GO                                00000001
 GO_DONE                           00000001
 GO_NOT_DONE                       00000001
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 11
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 11
 
 
 SYMBOL TABLE
@@ -641,7 +641,7 @@ NOT_TX8                           00000006
 NOT_W                             00000002
 NOT_WRITE                         00000002
 OERR                              00000001
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 12
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 12
 
 
 SYMBOL TABLE
@@ -700,7 +700,7 @@ PSSBD1                            00000001
 PSTRCON                           0000009D
 PULSR                             00000002
 PULSS                             00000003
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 13
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 13
 
 
 SYMBOL TABLE
@@ -759,7 +759,7 @@ RE2                               00000002
 RE3                               00000003
 READ_WRITE                        00000002
 RP0                               00000005
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 14
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 14
 
 
 SYMBOL TABLE
@@ -818,7 +818,7 @@ T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 15
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 15
 
 
 SYMBOL TABLE
@@ -877,7 +877,7 @@ TRISC                             00000087
 TRISC0                            00000000
 TRISC1                            00000001
 TRISC2                            00000002
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 16
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 16
 
 
 SYMBOL TABLE
@@ -936,7 +936,7 @@ W                                 00000000
 WCOL                              00000007
 WDTCON                            00000105
 WDTPS0                            00000001
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 17
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 17
 
 
 SYMBOL TABLE
@@ -995,7 +995,7 @@ _FOSC_HS                          00003FFA
 _FOSC_INTRC_CLKOUT                00003FFD
 _FOSC_INTRC_NOCLKOUT              00003FFC
 _FOSC_LP                          00003FF8
-MPASM 5.77                         BRAZO.ASM   11-21-2018  16:52:50         PAGE 18
+MPASM 5.77                         BRAZO.ASM   11-21-2018  16:54:31         PAGE 18
 
 
 SYMBOL TABLE
@@ -1034,6 +1034,8 @@ _WRT_HALF                         000039FF
 _WRT_OFF                          00003FFF
 _XT_OSC                           00003FF9
 __16F887                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
 
 Errors   :     0
 Warnings :     4 reported,     0 suppressed
