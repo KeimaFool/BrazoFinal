@@ -150,7 +150,6 @@ SERVO1:
     BCF ADCON0,2
     MOVF PROBAR2,0
     MOVWF CCPR2L
-    BSF PORTB,2
     GOTO CHECK_TXIF
 
 SERVO2:
@@ -167,7 +166,8 @@ SERVO3:
     MOVF PROBAR2,0
     MOVWF POT4
     GOTO CHECK_TXIF
-    BCF PORTB,2
+    
+    
     GOTO LOOP
 ;***************************
 ;*************************** 
