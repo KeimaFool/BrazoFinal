@@ -23,6 +23,8 @@ def record(event):
         button_1.config(text="Stop")
         save=1
         sync=count
+        open('prueba.txt', 'w').close()
+        print("dead")
     else:
         button_1.config(text="Record")
         save=0
@@ -43,6 +45,8 @@ def recordB(event):
         button_3.config(text="Stop")
         saveB=1
         syncB=count
+        open('pruebaB.txt', 'w').close()
+        print("dead")
     else:
         button_3.config(text="Record")
         saveB=0
@@ -199,8 +203,7 @@ while 1:
             print(recibido1)
         except:
             save=0
-            open('prueba.txt', 'w').close()
-            print("dead")
+            
     if save==2 and count==sync:
         save=3
         print(sync)
@@ -221,8 +224,7 @@ while 1:
             print(recibido1)
         except:
             saveB=0
-            open('pruebaB.txt', 'w').close()
-            print("dead")
+            
     if saveB==2 and count==syncB:
         saveB=3
         print(syncB)
