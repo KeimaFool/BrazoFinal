@@ -299,7 +299,7 @@ CONFIG_TMR0
 ;------------------------------------------------
     
 DELAY_50MS
-    MOVLW   .16              	    ; 1US 
+    MOVLW   .8              	    ; 1US 
     MOVWF   DELAY2
     CALL    DELAY_500US
     DECFSZ  DELAY2		    ;DECREMENTA CONT1
