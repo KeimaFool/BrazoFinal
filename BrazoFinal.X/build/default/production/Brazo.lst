@@ -1,4 +1,4 @@
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  1
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0000   2???           00040     GOTO    START                   ; go to beginning of program
                       00041 
                       00042 ISR_VECT  CODE    0x0004
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  2
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[207]: Found label after column 1. (POP)
 0004   2???           00090     CALL    CONFIG_ADC                  ; canal 0, fosc/8, adc on, justificado a la izquierda, Vref inte
                             rno (0-5V)
 0005   2???           00091     CALL    CONFIG_TMR0
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  3
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -138,280 +138,287 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 000D   130C           00105     BCF     PIR1, ADIF                  ; borramos la bandera del adc
 000E   081E           00106     MOVF    ADRESH, W
 000F   00??           00107     MOVWF LEIDO
-                      00108 
-0010                  00109 CHECK_RCIF:                         ; RECIBE EN RX y lo muestra en PORTD
-0010   1E8C           00110     BTFSS   PIR1, RCIF
-0011   2???           00111     GOTO    CHECK_TXIF
-0012   081A           00112     MOVF    RCREG, W
-                      00113 
-0013   00??           00114     MOVWF   PROBAR1
+0010   1000           00108     BCF LEIDO,0
+                      00109 
+0011                  00110 CHECK_RCIF:                         ; RECIBE EN RX y lo muestra en PORTD
+0011   1E8C           00111     BTFSS   PIR1, RCIF
+0012   2???           00112     GOTO    CHECK_TXIF
+0013   081A           00113     MOVF    RCREG, W
+                      00114 
+0014   00??           00115     MOVWF   PROBAR1
 Message[305]: Using default destination of 1 (file).
-0014   0A89           00115     INCF PORTE
-0015   08??           00116     MOVF SERVO,0
-0016   0782           00117     ADDWF PCL,1
-                      00118     
-0017   2???           00119     GOTO SERVO0
-0018   2???           00120     GOTO SERVO1
-0019   2???           00121     GOTO SERVO2
-001A   2???           00122     GOTO SERVO3
-                      00123     
-001B                  00124 CHECK_TXIF: 
-001B   1E0C           00125     BTFSS   PIR1, TXIF
-001C   2???           00126     GOTO    $-1
-001D   08??           00127     MOVF    LEIDO,W                 ; ENVÍA PORTB POR EL TX
-001E   0099           00128     MOVWF   TXREG
+0015   0A89           00116     INCF PORTE
+0016   08??           00117     MOVF SERVO,0
+0017   0782           00118     ADDWF PCL,1
+                      00119     
+0018   2???           00120     GOTO SERVO0
+0019   2???           00121     GOTO SERVO1
+001A   2???           00122     GOTO SERVO2
+001B   2???           00123     GOTO SERVO3
+                      00124     
+001C                  00125 CHECK_TXIF: 
+                      00126     
+001C   08??           00127     MOVF    LEIDO,W                 ; ENVÍA PORTB POR EL TX
+001D   0099           00128     MOVWF   TXREG
                       00129    
-                      00130     
-                      00131     
+001E   1E0C           00130     BTFSS   PIR1, TXIF
+001F   2???           00131     GOTO    $-1
                       00132     
+                      00133     
 Warning[203]: Found opcode in column 1. (GOTO)
-001F   2???           00133 GOTO LOOP
-                      00134     
+0020   2???           00134 GOTO LOOP
                       00135     
-0020                  00136 SERVO0:
+                      00136     
+0021                  00137 SERVO0:
 Message[305]: Using default destination of 1 (file).
-0020   0A??           00137     INCF SERVO
-0021   151F           00138     BSF ADCON0,2
-0022   08??           00139     MOVF PROBAR1,0
-0023   0095           00140     MOVWF CCPR1L
-0024   2???           00141     GOTO CHECK_TXIF
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  4
+0021   0A??           00138     INCF SERVO
+0022   151F           00139     BSF ADCON0,2
+0023   08??           00140     MOVF PROBAR1,0
+0024   0095           00141     MOVWF CCPR1L
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00142 
-0025                  00143 SERVO1:
+0025   2???           00142     GOTO CHECK_TXIF
+                      00143 
+0026                  00144 SERVO1:
 Message[305]: Using default destination of 1 (file).
-0025   0A??           00144     INCF SERVO
-0026   159F           00145     BSF ADCON0,3
-0027   111F           00146     BCF ADCON0,2
-0028   08??           00147     MOVF PROBAR1,0
-0029   009B           00148     MOVWF CCPR2L
-002A   2???           00149     GOTO CHECK_TXIF
-                      00150 
-002B                  00151 SERVO2:
+0026   0A??           00145     INCF SERVO
+0027   159F           00146     BSF ADCON0,3
+0028   111F           00147     BCF ADCON0,2
+0029   08??           00148     MOVF PROBAR1,0
+002A   009B           00149     MOVWF CCPR2L
+002B   2???           00150     GOTO CHECK_TXIF
+                      00151 
+002C                  00152 SERVO2:
 Message[305]: Using default destination of 1 (file).
-002B   0A??           00152     INCF SERVO
-002C   151F           00153     BSF ADCON0,2
-002D   0C??           00154     RRF     PROBAR1, 0
-002E   00??           00155     MOVWF   PROBAR2
-002F   0C??           00156     RRF     PROBAR2,0
-0030   393F           00157     ANDLW   B'00111111'
-0031   00??           00158     MOVWF POT3
-0032   2???           00159     GOTO CHECK_TXIF
-                      00160     
-0033                  00161 SERVO3:
-0033   01??           00162     CLRF SERVO
-0034   111F           00163     BCF ADCON0,2
-0035   119F           00164     BCF ADCON0,3
-0036   0C??           00165     RRF     PROBAR1, 0
-0037   00??           00166     MOVWF POT4
-0038   2???           00167     GOTO CHECK_TXIF
-                      00168     
+002C   0A??           00153     INCF SERVO
+002D   151F           00154     BSF ADCON0,2
+002E   0C??           00155     RRF     PROBAR1, 0
+002F   00??           00156     MOVWF   PROBAR2
+0030   0C??           00157     RRF     PROBAR2,0
+0031   393F           00158     ANDLW   B'00111111'
+0032   00??           00159     MOVWF POT3
+0033   2???           00160     GOTO CHECK_TXIF
+                      00161     
+0034                  00162 SERVO3:
+0034   01??           00163     CLRF SERVO
+0035   111F           00164     BCF ADCON0,2
+0036   119F           00165     BCF ADCON0,3
+0037   0C??           00166     RRF     PROBAR1, 0
+0038   00??           00167     MOVWF POT4
+0039   2???           00168     GOTO CHECK_TXIF
                       00169     
-0039   2???           00170     GOTO LOOP
-                      00171 ;***************************
-                      00172 ;*************************** 
-                      00173 ;***************************    
-003A                  00174 CONFIG_RELOJ
-003A   1683 1303      00175     BANKSEL TRISA
-                      00176     
+                      00170     
+003A   2???           00171     GOTO LOOP
+                      00172 ;***************************
+                      00173 ;*************************** 
+                      00174 ;***************************    
+003B                  00175 CONFIG_RELOJ
+003B   1683 1303      00176     BANKSEL TRISA
+                      00177     
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-003C   170F           00177     BSF OSCCON, IRCF2
+003D   170F           00178     BSF OSCCON, IRCF2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-003D   168F           00178     BSF OSCCON, IRCF1
+003E   168F           00179     BSF OSCCON, IRCF1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-003E   120F           00179     BCF OSCCON, IRCF0               ; FRECUECNIA DE 1MHz
-                      00180 
-003F   0008           00181     RETURN
-                      00182  
-                      00183  ;--------------------------------------------------------
-0040                  00184 CONFIG_TX_RX
-0040   1683 1303      00185     BANKSEL TXSTA
+003F   120F           00180     BCF OSCCON, IRCF0               ; FRECUECNIA DE 1MHz
+                      00181 
+0040   0008           00182     RETURN
+                      00183  
+                      00184  ;--------------------------------------------------------
+0041                  00185 CONFIG_TX_RX
+0041   1683 1303      00186     BANKSEL TXSTA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0042   1218           00186     BCF     TXSTA, SYNC             ; ASINCRÓNO
+0043   1218           00187     BCF     TXSTA, SYNC             ; ASINCRÓNO
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0043   1518           00187     BSF     TXSTA, BRGH             ; LOW SPEED
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  5
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0044   1683 1703      00188     BANKSEL BAUDCTL
+0044   1518           00188     BSF     TXSTA, BRGH             ; LOW SPEED
+0045   1683 1703      00189     BANKSEL BAUDCTL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0046   1587           00189     BSF     BAUDCTL, BRG16          ; 8 BITS BAURD RATE GENERATOR
-0047   1683 1303      00190     BANKSEL SPBRG
-0049   3033           00191     MOVLW   .51  
+0047   1587           00190     BSF     BAUDCTL, BRG16          ; 8 BITS BAURD RATE GENERATOR
+0048   1683 1303      00191     BANKSEL SPBRG
+004A   3033           00192     MOVLW   .51 
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-004A   0099           00192     MOVWF   SPBRG                   ; CARGAMOS EL VALOR DE BAUDRATE CALCULADO
+004B   0099           00193     MOVWF   SPBRG                   ; CARGAMOS EL VALOR DE BAUDRATE CALCULADO
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-004B   019A           00193     CLRF    SPBRGH
-004C   1283 1303      00194     BANKSEL RCSTA
-004E   1798           00195     BSF     RCSTA, SPEN             ; HABILITAR SERIAL PORT
-004F   1318           00196     BCF     RCSTA, RX9              ; SOLO MANEJAREMOS 8BITS DE DATOS
-0050   1618           00197     BSF     RCSTA, CREN             ; HABILITAMOS LA RECEPCIÓN 
-0051   1683 1303      00198     BANKSEL TXSTA
+004C   019A           00194     CLRF    SPBRGH
+004D   1283 1303      00195     BANKSEL RCSTA
+004F   1798           00196     BSF     RCSTA, SPEN             ; HABILITAR SERIAL PORT
+0050   1318           00197     BCF     RCSTA, RX9              ; SOLO MANEJAREMOS 8BITS DE DATOS
+0051   1618           00198     BSF     RCSTA, CREN             ; HABILITAMOS LA RECEPCIÓN 
+0052   1683 1303      00199     BANKSEL TXSTA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0053   1698           00199     BSF     TXSTA, TXEN             ; HABILITO LA TRANSMISION
-                      00200     
-0054   1283 1303      00201     BANKSEL PORTD
-0056   0188           00202     CLRF    PORTD
-0057   0008           00203     RETURN
-                      00204 ;--------------------------------------
-0058                  00205 CONFIG_IO
-0058   1683 1303      00206     BANKSEL TRISA
+0054   1698           00200     BSF     TXSTA, TXEN             ; HABILITO LA TRANSMISION
+                      00201     
+0055   1283 1303      00202     BANKSEL PORTD
+0057   0188           00203     CLRF    PORTD
+0058   0008           00204     RETURN
+                      00205 ;--------------------------------------
+0059                  00206 CONFIG_IO
+0059   1683 1303      00207     BANKSEL TRISA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-005A   0185           00207     CLRF    TRISA
+005B   0185           00208     CLRF    TRISA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-005B   0186           00208     CLRF    TRISB
+005C   0186           00209     CLRF    TRISB
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-005C   0187           00209     CLRF    TRISC
+005D   0187           00210     CLRF    TRISC
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-005D   0188           00210     CLRF    TRISD
+005E   0188           00211     CLRF    TRISD
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-005E   0189           00211     CLRF    TRISE
-005F   1683 1703      00212     BANKSEL ANSEL
+005F   0189           00212     CLRF    TRISE
+0060   1683 1703      00213     BANKSEL ANSEL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0061   0188           00213     CLRF    ANSEL
+0062   0188           00214     CLRF    ANSEL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0062   0189           00214     CLRF    ANSELH
-0063   1283 1303      00215     BANKSEL PORTA
-0065   0185           00216     CLRF    PORTA
-0066   0186           00217     CLRF    PORTB
-0067   0187           00218     CLRF    PORTC
-0068   0188           00219     CLRF    PORTD
-0069   0189           00220     CLRF    PORTE
-006A   0008           00221     RETURN    
-                      00222 ;--------------------------------------
-006B                  00223 CONFIG_PWM
-006B   30FF           00224     MOVLW   D'255'
+0063   0189           00215     CLRF    ANSELH
+0064   1283 1303      00216     BANKSEL PORTA
+0066   0185           00217     CLRF    PORTA
+0067   0186           00218     CLRF    PORTB
+0068   0187           00219     CLRF    PORTC
+0069   0188           00220     CLRF    PORTD
+006A   0189           00221     CLRF    PORTE
+006B   0008           00222     RETURN    
+                      00223 ;--------------------------------------
+006C                  00224 CONFIG_PWM
+006C   30FF           00225     MOVLW   D'255'
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-006C   0092           00225     MOVWF   PR2
-006D   0195           00226     CLRF    CCPR1L
-006E   303C           00227     MOVLW   B'00111100'
-006F   0097           00228     MOVWF   CCP1CON
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  6
+006D   0092           00226     MOVWF   PR2
+006E   0195           00227     CLRF    CCPR1L
+006F   303C           00228     MOVLW   B'00111100'
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0070   019B           00229     CLRF    CCPR2L
-0071   300F           00230     MOVLW   B'00001111'
-0072   009D           00231     MOVWF   CCP2CON
-0073   0189           00232     CLRF    PORTE
-0074   0187           00233     CLRF    PORTC
-0075   3041           00234     MOVLW   B'01000001'
-0076   009F           00235     MOVWF   ADCON0
-0077   1283 1303      00236     BANKSEL PORTC
-0079   3006           00237     MOVLW   B'00000110'
-007A   0092           00238     MOVWF   T2CON
-007B   0008           00239     RETURN 
-                      00240 ;-----------------------------------------------
-007C                  00241 CONFIG_ADC
-007C   1283 1303      00242     BANKSEL PORTA
-007E   139F           00243     BCF ADCON0, ADCS1 
-007F   171F           00244     BSF ADCON0, ADCS0           ; FOSC/8 RELOJ TAD
-                      00245     
-0080   129F           00246     BCF ADCON0, CHS3            ; CH0
-0081   121F           00247     BCF ADCON0, CHS2
-0082   119F           00248     BCF ADCON0, CHS1
-0083   111F           00249     BCF ADCON0, CHS0    
-0084   1683 1303      00250     BANKSEL TRISA
+0070   0097           00229     MOVWF   CCP1CON
+0071   019B           00230     CLRF    CCPR2L
+0072   300F           00231     MOVLW   B'00001111'
+0073   009D           00232     MOVWF   CCP2CON
+0074   0189           00233     CLRF    PORTE
+0075   0187           00234     CLRF    PORTC
+0076   3041           00235     MOVLW   B'01000001'
+0077   009F           00236     MOVWF   ADCON0
+0078   1283 1303      00237     BANKSEL PORTC
+007A   3006           00238     MOVLW   B'00000110'
+007B   0092           00239     MOVWF   T2CON
+007C   0008           00240     RETURN 
+                      00241 ;-----------------------------------------------
+007D                  00242 CONFIG_ADC
+007D   1283 1303      00243     BANKSEL PORTA
+007F   139F           00244     BCF ADCON0, ADCS1 
+0080   171F           00245     BSF ADCON0, ADCS0           ; FOSC/8 RELOJ TAD
+                      00246     
+0081   129F           00247     BCF ADCON0, CHS3            ; CH0
+0082   121F           00248     BCF ADCON0, CHS2
+0083   119F           00249     BCF ADCON0, CHS1
+0084   111F           00250     BCF ADCON0, CHS0    
+0085   1683 1303      00251     BANKSEL TRISA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0086   139F           00251     BCF ADCON1, ADFM            ; JUSTIFICACIÓN A LA IZQUIERDA
+0087   139F           00252     BCF ADCON1, ADFM            ; JUSTIFICACIÓN A LA IZQUIERDA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0087   129F           00252     BCF ADCON1, VCFG1           ; VSS COMO REFERENCIA VREF-
+0088   129F           00253     BCF ADCON1, VCFG1           ; VSS COMO REFERENCIA VREF-
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0088   121F           00253     BCF ADCON1, VCFG0           ; VDD COMO REFERENCIA VREF+
-0089   1283 1303      00254     BANKSEL PORTA
-008B   141F           00255     BSF ADCON0, ADON            ; ENCIENDO EL MÓDULO ADC
-                      00256     
-008C   1683 1303      00257     BANKSEL TRISA
+0089   121F           00254     BCF ADCON1, VCFG0           ; VDD COMO REFERENCIA VREF+
+008A   1283 1303      00255     BANKSEL PORTA
+008C   141F           00256     BSF ADCON0, ADON            ; ENCIENDO EL MÓDULO ADC
+                      00257     
+008D   1683 1303      00258     BANKSEL TRISA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-008E   1405           00258     BSF     TRISA, RA0          ; RA0 COMO ENTRADA
+008F   1405           00259     BSF     TRISA, RA0          ; RA0 COMO ENTRADA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-008F   1485           00259     BSF     TRISA, RA1
+0090   1485           00260     BSF     TRISA, RA1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0090   1505           00260     BSF     TRISA, RA2
+0091   1505           00261     BSF     TRISA, RA2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0091   1585           00261     BSF     TRISA, RA3
-0092   1683 1703      00262     BANKSEL ANSEL
+0092   1585           00262     BSF     TRISA, RA3
+0093   1683 1703      00263     BANKSEL ANSEL
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0094   1408           00263     BSF     ANSEL, 0            ; ANS0 COMO ENTRADA ANALÓGICA
+0095   1408           00264     BSF     ANSEL, 0            ; ANS0 COMO ENTRADA ANALÓGICA
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0095   1488           00264     BSF     ANSEL, 1
+0096   1488           00265     BSF     ANSEL, 1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0096   1508           00265     BSF     ANSEL,2
+0097   1508           00266     BSF     ANSEL,2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0097   1588           00266     BSF     ANSEL,3
-                      00267     
-0098   0008           00268     RETURN
-                      00269 ;-----------------------------------------------
-0099                  00270 CONFIG_TMR0
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  7
+0098   1588           00267     BSF     ANSEL,3
+                      00268     
+0099   0008           00269     RETURN
+                      00270 ;-----------------------------------------------
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0099   1683           00271     BSF STATUS, RP0
-009A   1303           00272     BCF STATUS, RP1         ; CAMBIAMOS AL BANCO 1
-                      00273     
+009A                  00271 CONFIG_TMR0
+009A   1683           00272     BSF STATUS, RP0
+009B   1303           00273     BCF STATUS, RP1         ; CAMBIAMOS AL BANCO 1
+                      00274     
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-009B   1281           00274     BCF OPTION_REG, T0CS    ; SELECCIONAMOS TMR0 COMO TEMPORIZADOR
+009C   1281           00275     BCF OPTION_REG, T0CS    ; SELECCIONAMOS TMR0 COMO TEMPORIZADOR
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-009C   1181           00275     BCF OPTION_REG, PSA     ; ASIGNAMOS PRESCALER A TMR0
-                      00276     
+009D   1181           00276     BCF OPTION_REG, PSA     ; ASIGNAMOS PRESCALER A TMR0
+                      00277     
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-009D   1101           00277     BCF OPTION_REG, PS2
+009E   1101           00278     BCF OPTION_REG, PS2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-009E   1481           00278     BSF OPTION_REG, PS1
+009F   1481           00279     BSF OPTION_REG, PS1
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-009F   1001           00279     BCF OPTION_REG, PS0     ; PRESCALER DE 2
-                      00280     
-00A0   1283           00281     BCF STATUS, RP0
-00A1   1303           00282     BCF STATUS, RP1         ; CAMBIAMOS AL BANCO 0
-                      00283     
-00A2   178B           00284     BSF  INTCON, GIE
-00A3   168B           00285     BSF  INTCON, T0IE
-00A4   130B           00286     BCF  INTCON, PEIE
-00A5   110B           00287     BCF INTCON, T0IF        ; APAGO LA BANDERA DE INTERRUPCION DEL TMR0
-                      00288     
-00A6   30F2           00289     MOVLW .242
-00A7   0081           00290     MOVWF TMR0  
-00A8   0008           00291     RETURN
-                      00292     
+00A0   1001           00280     BCF OPTION_REG, PS0     ; PRESCALER DE 2
+                      00281     
+00A1   1283           00282     BCF STATUS, RP0
+00A2   1303           00283     BCF STATUS, RP1         ; CAMBIAMOS AL BANCO 0
+                      00284     
+00A3   178B           00285     BSF  INTCON, GIE
+00A4   168B           00286     BSF  INTCON, T0IE
+00A5   130B           00287     BCF  INTCON, PEIE
+00A6   110B           00288     BCF INTCON, T0IF        ; APAGO LA BANDERA DE INTERRUPCION DEL TMR0
+                      00289     
+00A7   30F2           00290     MOVLW .242
+00A8   0081           00291     MOVWF TMR0  
+00A9   0008           00292     RETURN
                       00293     
                       00294     
                       00295     
                       00296     
                       00297     
-                      00298 ;------------------------------------------------
-                      00299     
-00A9                  00300 DELAY_50MS
-00A9   300A           00301     MOVLW   .10                     ; 1US 
-00AA   00??           00302     MOVWF   DELAY2
-00AB   2???           00303     CALL    DELAY_500US
+                      00298     
+                      00299 ;------------------------------------------------
+                      00300     
+00AA                  00301 DELAY_50MS
+00AA   3010           00302     MOVLW   .16                     ; 1US 
+00AB   00??           00303     MOVWF   DELAY2
+00AC   2???           00304     CALL    DELAY_500US
 Message[305]: Using default destination of 1 (file).
-00AC   0B??           00304     DECFSZ  DELAY2                  ;DECREMENTA CONT1
-00AD   2???           00305     GOTO    $-2                     ; IR A LA POSICION DEL PC - 1
-00AE   0008           00306     RETURN
-                      00307     
-00AF                  00308 DELAY_500US
-00AF   30FA           00309     MOVLW   .250                    ; 1US 
-00B0   00??           00310     MOVWF   DELAY1          
+00AD   0B??           00305     DECFSZ  DELAY2                  ;DECREMENTA CONT1
+00AE   2???           00306     GOTO    $-2                     ; IR A LA POSICION DEL PC - 1
+00AF   0008           00307     RETURN
+                      00308     
+00B0                  00309 DELAY_500US
+00B0   30FA           00310     MOVLW   .250                    ; 1US 
+00B1   00??           00311     MOVWF   DELAY1          
 Message[305]: Using default destination of 1 (file).
-00B1   0B??           00311     DECFSZ  DELAY1                  ;DECREMENTA CONT1
-00B2   2???           00312     GOTO    $-1                     ; IR A LA POSICION DEL PC - 1
-00B3   0008           00313     RETURN
-                      00314 
-                      00315     
-20D4 3FFF             00316     END
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  8
+00B2   0B??           00312     DECFSZ  DELAY1                  ;DECREMENTA CONT1
+00B3   2???           00313     GOTO    $-1                     ; IR A LA POSICION DEL PC - 1
+00B4   0008           00314     RETURN
+                      00315 
+                      00316     
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+20D4 3FFF             00317     END
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE  9
 
 
 SYMBOL TABLE
@@ -470,7 +477,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE  9
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 10
 
 
 SYMBOL TABLE
@@ -526,10 +533,10 @@ CCPR2                             0000001B
 CCPR2H                            0000001C
 CCPR2L                            0000001B
 CHECK_AD                          0000000B
-CHECK_RCIF                        00000010
-CHECK_TXIF                        0000001B
+CHECK_RCIF                        00000011
+CHECK_TXIF                        0000001C
 CHS0                              00000002
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 10
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 11
 
 
 SYMBOL TABLE
@@ -543,12 +550,12 @@ CKP                               00000004
 CM1CON0                           00000107
 CM2CON0                           00000108
 CM2CON1                           00000109
-CONFIG_ADC                        0000007C
-CONFIG_IO                         00000058
-CONFIG_PWM                        0000006B
-CONFIG_RELOJ                      0000003A
-CONFIG_TMR0                       00000099
-CONFIG_TX_RX                      00000040
+CONFIG_ADC                        0000007D
+CONFIG_IO                         00000059
+CONFIG_PWM                        0000006C
+CONFIG_RELOJ                      0000003B
+CONFIG_TMR0                       0000009A
+CONFIG_TX_RX                      00000041
 CREN                              00000004
 CSRC                              00000007
 D                                 00000005
@@ -560,8 +567,8 @@ DC2B0                             00000004
 DC2B1                             00000005
 DELAY1                            00000005
 DELAY2                            00000006
-DELAY_500US                       000000AF
-DELAY_50MS                        000000A9
+DELAY_500US                       000000B0
+DELAY_50MS                        000000AA
 D_A                               00000005
 D_NOT_A                           00000005
 ECCPAS                            0000009C
@@ -588,7 +595,7 @@ GIE                               00000007
 GO                                00000001
 GO_DONE                           00000001
 GO_NOT_DONE                       00000001
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 11
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 12
 
 
 SYMBOL TABLE
@@ -647,7 +654,7 @@ NOT_TX8                           00000006
 NOT_W                             00000002
 NOT_WRITE                         00000002
 OERR                              00000001
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 12
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 13
 
 
 SYMBOL TABLE
@@ -706,7 +713,7 @@ PSSBD1                            00000001
 PSTRCON                           0000009D
 PULSR                             00000002
 PULSS                             00000003
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 13
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 14
 
 
 SYMBOL TABLE
@@ -765,7 +772,7 @@ RE2                               00000002
 RE3                               00000003
 READ_WRITE                        00000002
 RP0                               00000005
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 14
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 15
 
 
 SYMBOL TABLE
@@ -784,10 +791,10 @@ SCS                               00000000
 SEN                               00000000
 SENDB                             00000003
 SERVO                             0000000E
-SERVO0                            00000020
-SERVO1                            00000025
-SERVO2                            0000002B
-SERVO3                            00000033
+SERVO0                            00000021
+SERVO1                            00000026
+SERVO2                            0000002C
+SERVO3                            00000034
 SMP                               00000007
 SPBRG                             00000099
 SPBRGH                            0000009A
@@ -824,7 +831,7 @@ T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 15
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 16
 
 
 SYMBOL TABLE
@@ -883,7 +890,7 @@ TRISC                             00000087
 TRISC0                            00000000
 TRISC1                            00000001
 TRISC2                            00000002
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 16
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 17
 
 
 SYMBOL TABLE
@@ -942,7 +949,7 @@ W                                 00000000
 WCOL                              00000007
 WDTCON                            00000105
 WDTPS0                            00000001
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 17
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 18
 
 
 SYMBOL TABLE
@@ -1001,7 +1008,7 @@ _FOSC_HS                          00003FFA
 _FOSC_INTRC_CLKOUT                00003FFD
 _FOSC_INTRC_NOCLKOUT              00003FFC
 _FOSC_LP                          00003FF8
-MPASM 5.77                         BRAZO.ASM   11-22-2018  17:17:03         PAGE 18
+MPASM 5.77                         BRAZO.ASM   11-22-2018  18:59:32         PAGE 19
 
 
 SYMBOL TABLE
@@ -1023,9 +1030,9 @@ _LP_OSC                           00003FF8
 _LVP_OFF                          00002FFF
 _LVP_ON                           00003FFF
 _MAIN_PROG_000C                   0000000C
-_MAIN_PROG_001C                   0000001C
-_MAIN_PROG_00AD                   000000AD
-_MAIN_PROG_00B2                   000000B2
+_MAIN_PROG_001F                   0000001F
+_MAIN_PROG_00AE                   000000AE
+_MAIN_PROG_00B3                   000000B3
 _MCLRE_OFF                        00003FDF
 _MCLRE_ON                         00003FFF
 _PWRTE_OFF                        00003FFF

@@ -105,6 +105,7 @@ CHECK_AD:
     BCF	    PIR1, ADIF			; borramos la bandera del adc
     MOVF    ADRESH, W
     MOVWF LEIDO
+    BCF LEIDO,0
 
 CHECK_RCIF:			    ; RECIBE EN RX y lo muestra en PORTD
     BTFSS   PIR1, RCIF
@@ -122,12 +123,12 @@ CHECK_RCIF:			    ; RECIBE EN RX y lo muestra en PORTD
     GOTO SERVO3
     
 CHECK_TXIF: 
-    BTFSS   PIR1, TXIF
-    GOTO    $-1
+    
     MOVF    LEIDO,W		    ; ENVÍA PORTB POR EL TX
     MOVWF   TXREG
    
-    
+    BTFSS   PIR1, TXIF
+    GOTO    $-1
     
     
 GOTO LOOP
@@ -188,7 +189,7 @@ CONFIG_TX_RX
     BANKSEL BAUDCTL
     BSF	    BAUDCTL, BRG16	    ; 8 BITS BAURD RATE GENERATOR
     BANKSEL SPBRG
-    MOVLW   .51  
+    MOVLW   .51 
     MOVWF   SPBRG		    ; CARGAMOS EL VALOR DE BAUDRATE CALCULADO
     CLRF    SPBRGH
     BANKSEL RCSTA
@@ -298,7 +299,7 @@ CONFIG_TMR0
 ;------------------------------------------------
     
 DELAY_50MS
-    MOVLW   .10                	    ; 1US 
+    MOVLW   .16              	    ; 1US 
     MOVWF   DELAY2
     CALL    DELAY_500US
     DECFSZ  DELAY2		    ;DECREMENTA CONT1

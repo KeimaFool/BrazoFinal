@@ -5,8 +5,8 @@ from tkinter import *
 
 ser0=127
 ser1=127
-ser2=127
-ser3=127
+ser2=210
+ser3=100
 count=0
 save=0
 readtxt=0
@@ -14,15 +14,17 @@ sync=0
 
 def record(event):
     global save
+    global count
+    global sync
+    
     if save==0:
         button_1.config(text="Stop")
         save=1
+        sync=count
     else:
         button_1.config(text="Record")
         save=0
-    global count
-    global sync
-    sync=count
+    
 def play(event):
     global save
     save=2
@@ -73,7 +75,7 @@ while 1:
     root.update_idletasks()
     root.update()
     ser.flushInput()
-    time.sleep(.01)
+    time.sleep(.02)
     try:
         recibido1=ser.read()
         recibido1=int.from_bytes( recibido1, byteorder='little', signed=False )
@@ -83,40 +85,40 @@ while 1:
         print("[Error]Unable to read")
     label_B.config(text=str(recibido1)+"V")
     if count>0:
-        if recibido1>230:
+        if recibido1>240 and recibido1<255:
             if count==1:
                 ser0=ser0+5
-                if ser0>250:
-                    ser0=250
+                if ser0>142:
+                    ser0=142
             if count==2:
                 ser1=ser1+5
-                if ser1>220:
-                    ser1=220
+                if ser1>140:
+                    ser1=140
             if count==3:
                 ser2=ser2+5
-                if ser2>250: 
-                    ser2=250 
+                if ser2>220: 
+                    ser2=220 
             if count==4:
                 ser3=ser3+5
-                if ser3>250:
-                    ser3=250
+                if ser3>120:
+                    ser3=120
         if recibido1<25:
             if count==1:
                 ser0=ser0-5
-                if ser0<0:
-                    ser0=0
+                if ser0<30:
+                    ser0=30
             if count==2:
                 ser1=ser1-5
-                if ser1<100:
-                    ser1=100
+                if ser1<80:
+                    ser1=80
             if count==3:
                 ser2=ser2-5
-                if ser2<0:
-                    ser2=0 
+                if ser2<100:
+                    ser2=100
             if count==4:
                 ser3=ser3-5
-                if ser3<0:
-                    ser3=0
+                if ser3<50:
+                    ser3=50
         if count==1:
             recibido1=ser0
             label_7.config(text=str(ser0))
@@ -135,14 +137,12 @@ while 1:
             count=1
         
     else:
-        if recibido1>240:
+        if recibido1<10:
             count=4
     if save==1:
         f=open('prueba.txt','a+')
         f.write(str(recibido1)+'\n')
         f.close()
-    if save==2 and count==sync:
-        save=3
     if save==3:
         try:
             f=open('prueba.txt','r')
@@ -155,6 +155,10 @@ while 1:
             save=0
             open('prueba.txt', 'w').close()
             print("dead")
+    if save==2 and count==sync:
+        save=3
+        print(sync)
+
     
     ser.write(recibido1.to_bytes(1, byteorder='little')) 
     
